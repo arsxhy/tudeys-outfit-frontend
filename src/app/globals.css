@@ -1,26 +1,187 @@
+
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f7f5;
+  --foreground: #151515;
+  --brand-primary: #151515;
+  --brand-accent: #c4a179;
+  
+  --surface: #f8f7f5;
+  --on-surface: #151515;
+  --on-surface-variant: #737373;
+  --outline: #d1d1d1;
+
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f0ee;
+  --surface-container: #ece9e6;
+  --surface-container-high: #e6e3e0;
+  --surface-container-highest: #dfdcda;
+}
+
+.dark {
+  --background: #121414;
+  --foreground: #e2e2e2;
+  --brand-primary: #f0f0f0;
+  --brand-accent: #c4a179;
+  
+  --surface: #121414;
+  --on-surface: #e2e2e2;
+  --on-surface-variant: #c4c7c7;
+  --outline: #8e9192;
+
+  --surface-container-lowest: #0c0f0f;
+  --surface-container-low: #1a1c1c;
+  --surface-container: #1e2020;
+  --surface-container-high: #282a2b;
+  --surface-container-highest: #333535;
 }
 
 @theme inline {
+  --color-surface: var(--surface);
+  --color-surface-dim: #121414;
+  --color-surface-bright: #38393a;
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-inverse-surface: #e2e2e2;
+  --color-inverse-on-surface: #2f3131;
+  --color-outline: var(--outline);
+  --color-outline-variant: #444748;
+  --color-surface-tint: #c8c6c5;
+  --color-primary: #c8c6c5;
+  --color-on-primary: #313030;
+  --color-primary-container: #151515;
+  --color-on-primary-container: #807f7e;
+  --color-inverse-primary: #5f5e5e;
+  --color-secondary: #e5c096;
+  --color-on-secondary: #422c0d;
+  --color-secondary-container: #5b4221;
+  --color-on-secondary-container: #d3af86;
+  --color-tertiary: #cbc6bf;
+  --color-on-tertiary: #33302c;
+  --color-tertiary-container: #171511;
+  --color-on-tertiary-container: #837f79;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #e5e2e1;
+  --color-primary-fixed-dim: #c8c6c5;
+  --color-on-primary-fixed: #1c1b1b;
+  --color-on-primary-fixed-variant: #474646;
+  --color-secondary-fixed: #ffddb8;
+  --color-secondary-fixed-dim: #e5c096;
+  --color-on-secondary-fixed: #2a1700;
+  --color-on-secondary-fixed-variant: #5b4221;
+  --color-tertiary-fixed: #e8e1db;
+  --color-tertiary-fixed-dim: #cbc6bf;
+  --color-on-tertiary-fixed: #1d1b17;
+  --color-on-tertiary-fixed-variant: #494641;
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-on-background: var(--foreground);
+  --color-surface-variant: #333535;
+  --color-charcoal-black: #151515;
+  --color-deep-espresso: #1a1814;
+  --color-champagne-gold: #c4a179;
+  --color-neutral-light: #f0f0f0;
+  --color-pure-white: #ffffff;
+  --color-muted-grey: #737373;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-hero-title: "Outfit", sans-serif;
+  --text-hero-title: 72px;
+  --text-hero-title--line-height: 1.1;
+  --text-hero-title--letter-spacing: 0.05em;
+  --text-hero-title--font-weight: 900;
+
+  --font-hero-title-mobile: "Outfit", sans-serif;
+  --text-hero-title-mobile: 48px;
+  --text-hero-title-mobile--line-height: 1.1;
+  --text-hero-title-mobile--letter-spacing: 0.05em;
+  --text-hero-title-mobile--font-weight: 900;
+
+  --font-section-title: "Outfit", sans-serif;
+  --text-section-title: 48px;
+  --text-section-title--line-height: 1.2;
+  --text-section-title--letter-spacing: 0.025em;
+  --text-section-title--font-weight: 700;
+
+  --font-section-title-mobile: "Outfit", sans-serif;
+  --text-section-title-mobile: 30px;
+  --text-section-title-mobile--line-height: 1.2;
+  --text-section-title-mobile--letter-spacing: 0.025em;
+  --text-section-title-mobile--font-weight: 700;
+
+  --font-body-main: "Inter", sans-serif;
+  --text-body-main: 16px;
+  --text-body-main--line-height: 1.6;
+
+  --font-price-tag: "Inter", sans-serif;
+  --text-price-tag: 18px;
+  --text-price-tag--line-height: 1;
+  --text-price-tag--font-weight: 700;
+
+  --font-button-label: "Outfit", sans-serif;
+  --text-button-label: 14px;
+  --text-button-label--line-height: 1;
+  --text-button-label--letter-spacing: 0.1em;
+  --text-button-label--font-weight: 600;
+
+  --font-watermark: "Outfit", sans-serif;
+  --text-watermark: 11vw;
+  --text-watermark--line-height: 1;
+  --text-watermark--letter-spacing: -0.05em;
+  --text-watermark--font-weight: 900;
+
+  --spacing-container-max: 1440px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+  --spacing-section-gap: 120px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+@layer utilities {
+  .image-blend {
+    mix-blend-mode: multiply;
+  }
+  .dark .image-blend {
+    mix-blend-mode: normal;
+  }
+  .aspect-product {
+    aspect-ratio: 361 / 510;
+  }
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
 }
