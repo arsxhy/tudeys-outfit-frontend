@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 function CartContent() {
   const searchParams = useSearchParams();
-  const lang = searchParams.get("lang") || "id";
+  const lang = (searchParams.get("lang") as "id" | "en") || "id";
   const isEn = lang === "en";
   const { cartItems, removeFromCart, updateQuantity, subtotal, tax, total } = useCart();
 

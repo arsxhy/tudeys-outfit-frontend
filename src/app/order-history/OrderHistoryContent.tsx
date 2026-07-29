@@ -12,20 +12,15 @@ import Link from "next/link";
 
 export default function OrderHistoryContent() {
   const searchParams = useSearchParams();
-  const { isEn, toggleLanguage } = useLanguage();
+  const { isEn } = useLanguage();
   const { orders } = useAccountData();
 
-  const lang = searchParams.get("lang");
+  const lang = (searchParams.get("lang") as "id" | "en") || "id";
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
     setMounted(true);
-    if (lang === "id" && isEn) {
-      toggleLanguage();
-    } else if (lang === "en" && !isEn) {
-      toggleLanguage();
-    }
-  }, [lang, isEn, toggleLanguage]);
+  }, []);
 
   if (!mounted) return null;
   const currentLang = isEn ? "en" : "id";

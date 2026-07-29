@@ -11,7 +11,7 @@ import AccountSidebar from "@/components/AccountSidebar";
 
 function ProfileContent() {
   const searchParams = useSearchParams();
-  const lang = searchParams.get("lang") || "id";
+  const lang = (searchParams.get("lang") as "id" | "en") || "id";
   const isEn = lang === "en";
   const { user, logout } = useAuth();
   const { orders } = useAccountData();

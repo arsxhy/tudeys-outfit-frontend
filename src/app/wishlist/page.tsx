@@ -85,8 +85,7 @@ function WishlistContent() {
                               addToCart({
                                   ...item,
                                   size: 'M',
-                                  color: 'Default',
-                                  qty: 1
+                                  color: 'Default'
                               });
                           }}
                           className="w-full bg-primary-container hover:bg-champagne-gold text-pure-white hover:text-deep-espresso font-button-label text-button-label uppercase py-4 transition-colors duration-300"
@@ -114,8 +113,7 @@ function WishlistContent() {
                           addToCart({
                               ...item,
                               size: 'M',
-                              color: 'Default',
-                              qty: 1
+                              color: 'Default'
                           });
                       }}
                       className="w-full mt-4 md:hidden bg-primary-container text-pure-white font-button-label text-button-label uppercase py-3 border border-black/10 dark:border-white/10"

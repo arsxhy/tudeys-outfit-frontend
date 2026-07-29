@@ -11,11 +11,11 @@ import AccountSidebar from "@/components/AccountSidebar";
 
 export default function PaymentMethodsContent() {
   const searchParams = useSearchParams();
-  const { isEn, toggleLanguage } = useLanguage();
+  const { isEn } = useLanguage();
   const { user } = useAuth();
   const { paymentMethods, addPaymentMethod, removePaymentMethod, setAsDefaultPaymentMethod } = useAccountData();
 
-  const lang = searchParams.get("lang");
+  const lang = (searchParams.get("lang") as "id" | "en") || "id";
   const [mounted, setMounted] = useState(false);
   
   // Modal state
@@ -34,12 +34,7 @@ export default function PaymentMethodsContent() {
   
   useEffect(() => {
     setMounted(true);
-    if (lang === "id" && isEn) {
-      toggleLanguage();
-    } else if (lang === "en" && !isEn) {
-      toggleLanguage();
-    }
-  }, [lang, isEn, toggleLanguage]);
+  }, []);
 
   useEffect(() => {
     if (user) {

@@ -11,7 +11,7 @@ function CheckoutContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { user, token } = useAuth();
-  const lang = searchParams.get("lang") || "id";
+  const lang = (searchParams.get("lang") as "id" | "en") || "id";
   const isEn = lang === "en";
   const { cartItems, subtotal, tax, total, clearCart } = useCart();
 

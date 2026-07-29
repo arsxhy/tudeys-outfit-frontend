@@ -9,7 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 function AccountContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const lang = searchParams.get("lang") || "id";
+  const lang = (searchParams.get("lang") as "id" | "en") || "id";
   const isEn = lang === "en";
 
   const { login, isAuthenticated } = useAuth();
