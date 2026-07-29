@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `${process.env.BACKEND_URL || 'http://103.55.38.176:3001'}/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
