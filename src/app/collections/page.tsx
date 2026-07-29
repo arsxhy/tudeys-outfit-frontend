@@ -25,7 +25,7 @@ function CollectionsPage() {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/products`, {
+                const res = await fetch(`${process.env.BACKEND_URL || 'http://103.55.38.176:3001'}/products`, {
                     next: { revalidate: 0 }
                 });
                 if (res.ok) {

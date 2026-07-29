@@ -14,7 +14,7 @@ function WomenPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/products`);
+        const res = await fetch(`${process.env.BACKEND_URL || 'http://103.55.38.176:3001'}/products`);
         if (res.ok) {
           const data = await res.json();
           const formattedProducts = data.map((p: any) => ({

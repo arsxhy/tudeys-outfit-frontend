@@ -14,7 +14,7 @@ export default async function Shop({
 
   let products: ShopProduct[] = [];
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/products`, {
+    const res = await fetch(`${process.env.BACKEND_URL || 'http://103.55.38.176:3001'}/products`, {
       next: { revalidate: 0 } // Or cache: 'no-store' depending on preference
     });
     if (res.ok) {

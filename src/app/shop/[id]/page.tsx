@@ -13,7 +13,7 @@ export default async function ProductDetailsPage({
 
   let product = null;
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/products/${id}`, {
+    const res = await fetch(`${process.env.BACKEND_URL || 'http://103.55.38.176:3001'}/products/${id}`, {
       next: { revalidate: 0 },
     });
     if (res.ok) {
